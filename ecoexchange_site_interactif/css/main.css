@@ -1,0 +1,109 @@
+
+:root {
+  --green: #3c9d6d;
+  --dark: #222;
+  --light: #f8f8f8;
+  --radius: 12px;
+  --shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+/* Header */
+header.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: white;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--green);
+}
+
+.nav-links a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: var(--dark);
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: var(--green);
+}
+
+.btn {
+  background: var(--green);
+  color: white;
+  padding: .5rem 1rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background .2s;
+}
+.btn:hover {
+  background: #2f7d57;
+}
+
+/* Layouts */
+main {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+footer.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: white;
+  border-top: 1px solid #ddd;
+  margin-top: 3rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+}
+.card img {
+  max-width: 100%;
+  border-radius: var(--radius);
+  height: 180px;
+  object-fit: cover;
+}
+input, textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+}
+button {
+  background: var(--green);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+button:hover { background: #2f7d57; }
