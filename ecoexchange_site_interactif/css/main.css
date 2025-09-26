@@ -9,13 +9,10 @@
 * { box-sizing: border-box; }
 
 html, body {
-  height: 100%;                
+  height: 100%;
   margin: 0;
   display: flex;
-  flex-direction: column;      
-}
-
-body {
+  flex-direction: column;
   font-family: 'Segoe UI', Arial, sans-serif;
   background: var(--light);
   color: var(--dark);
@@ -59,25 +56,25 @@ header .logo {
   text-decoration: none;
   transition: background .2s;
 }
-.btn:hover {
-  background: #2f7d57;
-}
+.btn:hover { background: #2f7d57; }
 
-/* Layouts */
+/* Layout main */
 main {
   background-image: url('../foret.webp');
   background-repeat: no-repeat;
   background-size: cover;
-  max-width: 100%;
-  height: 300px;   /* taille fixe */
+  width: 100%;       /* <- force la largeur totale */
+  height: 300px;
   color: white;
   text-align: center;
-
-  display: flex;         
-  flex-direction: column;   
-  justify-content: center;  
-  align-items: center;     
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;         /* supprime le centrage */
+  padding: 0;        /* supprime l'espace intérieur */
 }
+
 
 main h1 {
   margin-top: 40px;
@@ -95,7 +92,7 @@ footer.site-footer {
   padding: 2rem 1rem;
   background: white;
   border-top: 1px solid #ddd;
-  margin-top: auto; /* pousse le footer en bas */
+  margin-top: auto;
 }
 
 /* Cards */
@@ -126,6 +123,7 @@ input, textarea {
   border: 1px solid #ccc;
   border-radius: var(--radius);
 }
+
 button {
   background: var(--green);
   color: white;
@@ -136,26 +134,127 @@ button {
 }
 button:hover { background: #2f7d57; }
 
+/* Form container spécifique */
+.form-container {
+  background-color: #fff;
+  padding: 30px;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 300px;
+  margin: 50px auto;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+form input {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+form button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: #28a745;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #218838;
+}
+
+/* Bouton déjà inscrit */
+.small-note{
+  margin-top:12px;
+  font-size:14px;
+  color:#6b7280;
+}
+.small-note a{
+  color:#2b7cff;
+  text-decoration:none;
+  margin-left:6px;
+}
+.small-note a:hover{
+  text-decoration:underline;
+}
+
+/* Erreurs inline (affichées quand un champ est vide ou invalide) */
+.error{
+  display:none;
+  font-size:12px;
+  color:#d9534f;
+  margin-top:6px;
+}
+input:invalid + .error{
+  display:block;
+}
+
+/* Overlay / modal */
+.overlay{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:rgba(0,0,0,0.45);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .2s;
+}
+#login:target{
+  opacity:1;
+  pointer-events:auto;
+}
+.modal{
+  background:#fff;
+  padding:20px;
+  border-radius:10px;
+  max-width:400px;
+  width:100%;
+  position:relative;
+}
+.close{
+  position:absolute;
+  top:10px;
+  right:14px;
+  font-size:22px;
+  text-decoration:none;
+  color:#666;
+}
+
+/* Grille des carrés */
 /* Grille des carrés */
 .square-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* carrés plus larges */
-  gap: 1.5rem;
-  width: 100%;         /* occupe toute la largeur de l'écran */
-  max-width: none;     /* plus de limite */
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* carrés plus petits */
+  gap: 5rem;        /* espace entre les carrés */
+  width: 100%;
+  max-width: 900px; /* limite la largeur totale de la grille */
   margin: 2rem auto;
-  padding: 0 3rem;
+  padding: 0 1rem;
 }
 
 .square {
   display: flex;
   align-items: center;
   justify-content: center;
-  aspect-ratio: 1 / 1;   /* carré toujours */
+  aspect-ratio: 1 / 1;       /* carré toujours */
   background-size: cover;
   background-position: center;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;           /* texte plus petit */
   font-weight: bold;
   text-decoration: none;
   border-radius: var(--radius);
@@ -165,7 +264,7 @@ button:hover { background: #2f7d57; }
 
 .square:hover {
   transform: translateY(-5px);
-  filter: brightness(0.85); /* effet assombrissement */
+  filter: brightness(0.85);
 }
 
 /* Images différentes */
@@ -176,8 +275,7 @@ button:hover { background: #2f7d57; }
 .square-1, .square-2, .square-3 {
   background-size: cover;
   background-position: center;
-  /* Couleur noire semi-transparente */
-  background-color: rgba(0, 0, 0, 0.3); 
-  /* Mélange avec l'image */
-  background-blend-mode: darken; 
+  background-color: rgba(0, 0, 0, 0.3);
+  background-blend-mode: darken;
 }
+
