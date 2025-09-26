@@ -60,7 +60,11 @@ header .logo {
 
 /* Layouts */
 main {
-  max-width: 900px;
+  background-image: url('../foret.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100%;
+  height: 300px;
   margin: 2rem auto;
   padding: 0 1rem;
 }
