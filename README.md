@@ -1,1 +1,3 @@
-# Site Web pour *A DEUX MAINS*, ressourcerie dédiée aux meubles et électroménagers
+# Site Web pour *A DEUX MAINS*
+
+## Ressourcerie dédiée aux meubles et électroménagers
