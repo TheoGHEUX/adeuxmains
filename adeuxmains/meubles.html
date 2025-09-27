@@ -1,11 +1,121 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meubles & Déco – À DEUX MAINS</title>
+  <link rel="stylesheet" href="css/cat.css">
+  <link rel="icon" href="favicon.ico">
 </head>
 <body>
+
+    <header class="site-header">
+  <div class="logo">
+    <img src="logo2.png" alt="Logo" class="logo-img" loading="lazy" />
+    À DEUX MAINS
+  </div>
+
+  <button class="burger" aria-label="Menu">
+    ☰
+  </button>
+  <div class="nav-actions">
+    <nav class="nav-links">
+      <a href="../index.html">Accueil</a>
+      <a href="../index.html#contact-section">Nous contacter</a>
+      <a href="profile.html">
+        <img src="categories/user.png" alt="Profil" class="user-icon" loading="lazy">
+      </a>
+    </nav>
+    <a href="auth.html" class="btn">Connexion</a>
+  </div>
+</header>
+
+<h2>Découvrez nos produits<br> de seconde main !</h2>
+
+<main>
+    <!-- Barre de recherche -->
+    <div class="search-container">
+      <input 
+        type="text" 
+        class="search-bar" 
+        placeholder="Rechercher dans nos stocks... "
+        id="searchInput"
+      >
+    </div>
+
+    <!-- Grille d'appareils -->
+    <div class="appliances-grid">
+      <div class="appliance-card" data-name="miroir">
+        <img src="categories/miroir.jpg" alt="miroir" class="appliance-image" loading="lazy">
+        <h3 class="appliance-name">Miroir<div class="prix">39€ </div></h3>
+      </div>
+
+      <div class="appliance-card" data-name="chaise de bureau">
+        <img src="categories/chaise.webp" alt="chaise de bureau" class="appliance-image" loading="lazy">
+        <h3 class="appliance-name">Chaise de bureau<div class="prix">29€ </div></h3>
+      </div>
+
+      <div class="appliance-card" data-name="chaise">
+        <img src="categories/chaise2.webp" alt="chaise" class="appliance-image" loading="lazy">
+        <h3 class="appliance-name">Chaise<div class="prix">18€ </div></h3>
+      </div>
+
+      <div class="appliance-card" data-name="armoire">
+        <img src="categories/armoire.jpg" alt="armoire" class="appliance-image" loading="lazy">
+        <h3 class="appliance-name">Armoire<div class="prix">95€ </div></h3>
+      </div>
+
+      <div class="appliance-card" data-name="Table">
+        <img src="categories/tabel.jpg" alt="Table" class="appliance-image" loading="lazy">
+        <h3 class="appliance-name">Table<div class="prix">50€ </div></h3>
+      </div>
+
+      <div class="appliance-card" data-name="Lampe de chevet">
+        <img src="categories/lampe.jpg" alt="Lampe de chevet" class="appliance-image" loading="lazy">
+        <h3 class="appliance-name">Lampe de chevet<div class="prix">9€ </div></h3>
+      </div>
+    </div>
+  </main>
+
+<footer class="site-footer">
+  <p>&copy; 2025 À DEUX MAINS. Tous droits réservés.</p>
+</footer>
+
+<script>
+    const burger = document.querySelector(".burger");
+    const nav = document.querySelector(".nav-actions");
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+    });
+
+    // Fonctionnalité de recherche
+    const searchInput = document.getElementById('searchInput');
+    const applianceCards = document.querySelectorAll('.appliance-card');
+
+    searchInput.addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase().trim();
+      
+      applianceCards.forEach(card => {
+        const applianceName = card.getAttribute('data-name').toLowerCase();
+        
+        if (applianceName.includes(searchTerm)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    // Animation au clic sur les cartes
+    applianceCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const applianceName = this.getAttribute('data-name');
+        console.log(`Appareil sélectionné: ${applianceName}`);
+        // Ici vous pouvez ajouter la logique de redirection ou d'action
+      });
+    });
+  </script>
+
     
 </body>
 </html>

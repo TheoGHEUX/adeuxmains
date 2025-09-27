@@ -78,5 +78,14 @@
   <p>&copy; 2025 À DEUX MAINS. Tous droits réservés.</p>
 </footer>
 
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector(".nav-actions");
+
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+  });
+</script>
+
 </body>
 </html>
