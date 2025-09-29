@@ -1,206 +1,185 @@
 :root {
-  --green: #3c9d6d;
-  --dark: #222;
-  --light: #f8f8f8;
-  --radius: 12px;
-  --shadow: 0 2px 6px rgba(0,0,0,.1);
-}
-
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: var(--light);
-  color: var(--dark);
-  line-height: 1.6;
-}
-
-h2 {
-  font-size: 50px;
-  margin-top: 50px;
-  color : #218838;
-  text-align: center;
-}
-
-.prix {
-    color :#0aeb28 ;
-}
-
-
-/* Header */
-header.site-header {
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: white;
-  box-shadow: var(--shadow);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.user-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
-  vertical-align: middle;
-  transition: transform 0.2s ease; /* animation fluide */
-}
-
-.nav-links a:hover .user-icon {
-  transform: scale(1.2); /* agrandit l'image de 20% au hover */
-}
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 1rem; /* espace entre les liens et le bouton */
-}
-
-.nav-links a {
-  display: inline-block; /* <-- important pour que transform fonctionne */
-  margin: 0 0.5rem;
-  text-decoration: none;
-  color: var(--dark);
-  transition: color 0.1s, transform 0.1s ease;
-}
-
-.nav-links a:hover {
-  color: var(--green);
-  transform: scale(1.1); /* agrandissement au hover */
-}
-
-header .logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--green);
-}
-
-.logo-img {
-  height: 60px; 
-}
-
-.nav-links a {
-  margin: 0 1rem;
-  text-decoration: none;
-  color: var(--dark);
-}
-
-.nav-links a.active,
-.nav-links a:hover {
-  color: var(--green);
-}
-
-.btn {
-  background: var(--green);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  text-decoration: none;
-  transition: background 0.2s, transform 0.2s ease; /* ajout transform */
-}
-
-.btn:hover {
-  background: #2f7d57;
-  transform: scale(1.05); /* agrandissement léger */
-}
-
-/* Cacher le burger sur desktop */
-.burger {
-  display: none;
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--green);
-}
-
-/* Mode mobile */
-@media (max-width: 768px) {
-  header.site-header {
-    flex-wrap: wrap;
-    padding: 1rem;
-  }
-
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .logo-img {
-    height: 40px;
-    margin-right: 0.5rem;
-  }
-
-  .user-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  /* Afficher le burger */
-  .burger {
-    display: block;
-    margin-left: auto;
-  }
-
-  /* Menu caché par défaut */
-  .nav-actions {
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-    display: none; /* masqué au départ */
-    margin-top: 1rem;
-  }
-
-  .nav-actions.active {
-    display: flex; /* affiché quand actif */
-  }
-
-  .nav-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-  }
-
-  .nav-links a {
-    margin: 0;
-    padding: 0.5rem 0;
-    width: 100%;
-    border-bottom: 1px solid #eee;
-  }
-
-  .btn {
-    margin-top: 1rem;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Footer */
-.site-footer {
-      background: #333;
-      color: white;
-      text-align: center;
-      padding: 2rem;
-      margin-top: auto;
+      --green: #3c9d6d;
+      --dark: #222;
+      --light: #f8f8f8;
+      --radius: 12px;
+      --shadow: 0 2px 6px rgba(0,0,0,.1);
     }
 
+    * { box-sizing: border-box; }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* Styles pour le main */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    h2 {
+      font-size: 50px;
+      margin-top: 50px;
+      color: #218838;
+      text-align: center;
+    }
+
+    .prix {
+      color: #0aeb28;
+    }
+
+    /* Header */
+    header.site-header {
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .user-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      vertical-align: middle;
+      transition: transform 0.2s ease;
+    }
+
+    .nav-links a:hover .user-icon {
+      transform: scale(1.2);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      color: var(--dark);
+      transition: color 0.1s, transform 0.1s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+      transform: scale(1.1);
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--green);
+    }
+
+    .logo-img {
+      height: 60px;
+    }
+
+    .nav-links a.active,
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .btn {
+      background: var(--green);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #2f7d57;
+      transform: scale(1.05);
+    }
+
+    .burger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--green);
+    }
+
+    /* Mode mobile */
+    @media (max-width: 768px) {
+      header.site-header {
+        flex-wrap: wrap;
+        padding: 1rem;
+      }
+
+      .logo {
+        font-size: 1.2rem;
+      }
+
+      .logo-img {
+        height: 40px;
+        margin-right: 0.5rem;
+      }
+
+      .user-icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .burger {
+        display: block;
+        margin-left: auto;
+      }
+
+      .nav-actions {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        display: none;
+        margin-top: 1rem;
+      }
+
+      .nav-actions.active {
+        display: flex;
+      }
+
+      .nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+      }
+
+      .nav-links a {
+        margin: 0;
+        padding: 0.5rem 0;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+      }
+
+      .btn {
+        margin-top: 1rem;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* Main */
     main {
       padding: 2rem;
       max-width: 1200px;
@@ -297,5 +276,171 @@ header .logo {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(6, 1fr);
         gap: 1rem;
+      }
+    }
+
+    .para {
+      text-align: center;
+      margin-right: 10vw;
+      margin-left: 10vw;
+      font-size: 1.4rem;
+    }
+
+    a {
+      color: green;
+    }
+
+    /* Modal de paiement */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 500px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: slideUp 0.3s ease;
+      position: relative;
+    }
+
+    @keyframes slideUp {
+      from { 
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to { 
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 30px;
+      cursor: pointer;
+      color: #999;
+      transition: color 0.3s ease;
+    }
+
+    .modal-close:hover {
+      color: #333;
+    }
+
+    .modal-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .modal-header h2 {
+      color: #333;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+      margin-top: 0;
+    }
+
+    .modal-header .product-info {
+      color: var(--green);
+      font-size: 1.3em;
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+      font-weight: 600;
+      font-size: 0.95em;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin-top: 10px;
+    }
+
+    .btn-submit:hover {
+      background: #2f7d57;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 20px rgba(60, 157, 109, 0.4);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .card-icon {
+      text-align: right;
+      color: #999;
+      font-size: 0.9em;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 480px) {
+      .modal {
+        padding: 30px 20px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
       }
     }

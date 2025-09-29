@@ -5,34 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Electroménager – À DEUX MAINS</title>
   <link rel="stylesheet" href="css/cat.css">
+  <script src='js/ventes.js' defer></script>
   <link rel="icon" href="favicon.ico">
 </head>
 <body>
 
-    <header class="site-header">
-  <div class="logo">
-    <img src="logo2.png" alt="Logo" class="logo-img" loading="lazy" />
-    À DEUX MAINS
+  <header class="site-header">
+    <div class="logo">
+      <img src="logo2.png" alt="Logo" class="logo-img" loading="lazy" />
+      À DEUX MAINS
+    </div>
+
+    <button class="burger" aria-label="Menu">
+      ☰
+    </button>
+    <div class="nav-actions">
+      <nav class="nav-links">
+        <a href="../index.html">Accueil</a>
+        <a href="../index.html#contact-section">Nous contacter</a>
+        <a href="profile.html">
+          <img src="categories/user.png" alt="Profil" class="user-icon" loading="lazy">
+        </a>
+      </nav>
+      <a href="auth.html" class="btn">Connexion</a>
+    </div>
+  </header>
+
+  <h2>Découvrez nos produits<br> de seconde main !</h2>
+
+  <div class="para">
+    <p>Lors de la validation de l'achat de vos articles, vous pouvez directement les récupérer sur place au nom de votre profil ou bien les faire livrer depuis l'onglet <a href="services.html">livraison</a> !</p>
   </div>
 
-  <button class="burger" aria-label="Menu">
-    ☰
-  </button>
-  <div class="nav-actions">
-    <nav class="nav-links">
-      <a href="../index.html">Accueil</a>
-      <a href="../index.html#contact-section">Nous contacter</a>
-      <a href="profile.html">
-        <img src="categories/user.png" alt="Profil" class="user-icon" loading="lazy">
-      </a>
-    </nav>
-    <a href="auth.html" class="btn">Connexion</a>
-  </div>
-</header>
-
-<h2>Découvrez nos produits<br> de seconde main !</h2>
-
-<main>
+  <main>
     <!-- Barre de recherche -->
     <div class="search-container">
       <input 
@@ -45,76 +50,72 @@
 
     <!-- Grille d'appareils -->
     <div class="appliances-grid">
-      <div class="appliance-card" data-name="réfrigérateur">
+      <div class="appliance-card" data-name="réfrigérateur" data-price="135€">
         <img src="categories/frigo.jpg" alt="Réfrigérateur" class="appliance-image" loading="lazy">
-        <h3 class="appliance-name">Réfrigérateur<div class="prix">135€ </div></h3>
+        <h3 class="appliance-name">Réfrigérateur<div class="prix">135€</div></h3>
       </div>
 
-      <div class="appliance-card" data-name="lave-linge">
+      <div class="appliance-card" data-name="lave-linge" data-price="105€">
         <img src="categories/lavelinge.jpg" alt="Lave-linge" class="appliance-image" loading="lazy">
-        <h3 class="appliance-name">Lave-linge<div class="prix">105€ </div></h3>
+        <h3 class="appliance-name">Lave-linge<div class="prix">105€</div></h3>
       </div>
 
-      <div class="appliance-card" data-name="lave-vaisselle">
+      <div class="appliance-card" data-name="lave-vaisselle" data-price="110€">
         <img src="categories/lavevaisselle.webp" alt="Lave-vaisselle" class="appliance-image" loading="lazy">
-        <h3 class="appliance-name">Lave-vaisselle<div class="prix">110€ </div></h3>
+        <h3 class="appliance-name">Lave-vaisselle<div class="prix">110€</div></h3>
       </div>
 
-      <div class="appliance-card" data-name="four">
+      <div class="appliance-card" data-name="four" data-price="95€">
         <img src="categories/four2.jpg" alt="Four" class="appliance-image" loading="lazy">
-        <h3 class="appliance-name">Four<div class="prix">95€ </div></h3>
+        <h3 class="appliance-name">Four<div class="prix">95€</div></h3>
       </div>
 
-      <div class="appliance-card" data-name="micro-ondes">
+      <div class="appliance-card" data-name="micro-ondes" data-price="25€">
         <img src="categories/microonde.jpg" alt="Micro-ondes" class="appliance-image" loading="lazy">
-        <h3 class="appliance-name">Micro-ondes<div class="prix">25€ </div></h3>
+        <h3 class="appliance-name">Micro-ondes<div class="prix">25€</div></h3>
       </div>
 
-      <div class="appliance-card" data-name="aspirateur">
+      <div class="appliance-card" data-name="aspirateur" data-price="22€">
         <img src="categories/aspiro.jpg" alt="Aspirateur" class="appliance-image" loading="lazy">
-        <h3 class="appliance-name">Aspirateur<div class="prix">22€ </div></h3>
+        <h3 class="appliance-name">Aspirateur<div class="prix">22€</div></h3>
       </div>
     </div>
   </main>
 
-<script>
-    const burger = document.querySelector(".burger");
-    const nav = document.querySelector(".nav-actions");
-    burger.addEventListener("click", () => {
-      nav.classList.toggle("active");
-    });
-
-    // Fonctionnalité de recherche
-    const searchInput = document.getElementById('searchInput');
-    const applianceCards = document.querySelectorAll('.appliance-card');
-
-    searchInput.addEventListener('input', function() {
-      const searchTerm = this.value.toLowerCase().trim();
+  <!-- Modal de paiement -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="modal-header">
+        <h2>Paiement sécurisé</h2>
+        <div class="product-info">
+          <span id="productName"></span> - <span id="productPrice"></span>
+        </div>
+      </div>
       
-      applianceCards.forEach(card => {
-        const applianceName = card.getAttribute('data-name').toLowerCase();
+      <form id="paymentForm">
+        <div class="form-group">
+          <label for="cardNumber">Numéro de carte bancaire</label>
+          <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+          <div class="card-icon">💳 Visa, Mastercard, CB</div>
+        </div>
         
-        if (applianceName.includes(searchTerm)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiryDate">Date d'expiration</label>
+            <input type="text" id="expiryDate" placeholder="MM/AA" maxlength="5" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="cvv">Code CVV</label>
+            <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+          </div>
+        </div>
+        
+        <button type="submit" class="btn-submit">Valider le paiement</button>
+      </form>
+    </div>
+  </div>
 
-    // Animation au clic sur les cartes
-    applianceCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const applianceName = this.getAttribute('data-name');
-        console.log(`Appareil sélectionné: ${applianceName}`);
-        // Ici vous pouvez ajouter la logique de redirection ou d'action
-      });
-    });
-  </script>
-
-
-
-    
 </body>
-
 </html>
