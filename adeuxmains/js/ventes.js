@@ -88,7 +88,7 @@
       const productName = document.getElementById('productName').textContent;
       const productPrice = document.getElementById('productPrice').textContent;
       
-      alert(`Paiement validé pour ${productName} - ${productPrice}\n\nMerci pour votre achat !`);
+      alert(`Paiement validé pour ${productName} - ${productPrice}\n\nPlus qu'à récupérer votre commande dans notre ressourcerie ou à la faire livrer !\n\nMerci pour votre achat !`);
       
       closeModal();
     });
@@ -98,4 +98,5 @@
       if (e.key === 'Escape' && modal.classList.contains('active')) {
         closeModal();
       }
+
     });
