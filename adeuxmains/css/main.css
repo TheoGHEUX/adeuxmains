@@ -568,6 +568,7 @@ footer.site-footer {
   .review-content {
     max-width: 90%;       
     padding: 15px;        
+    margin: 0 auto; /* Ajouté pour centrer */
   }
 
   .stars {
