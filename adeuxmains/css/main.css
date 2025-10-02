@@ -23,6 +23,10 @@ html, body {
   line-height: 1.6;
 }
 
+a {
+  color : green ;
+}
+
 /* Header */
 header.site-header {
   font-size: 20px;
@@ -585,4 +589,17 @@ footer.site-footer {
     height: 4px;          
     margin-top: 10px;
   }
+}
+
+/* infos.html : */
+
+.info-h2 {
+  margin-top: 120px;
+}
+
+.qui-sommes-nous-infos {
+  text-align: justify;
+  margin-right : 10vw;
+  margin-left : 10vw;
+  font-size: 1.4rem;
 }
