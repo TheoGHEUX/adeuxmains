@@ -32,9 +32,6 @@
   </div>
 </header>
 
-
-<script src='js/main.js' defer></script>
-
 <main>
   <img src="adeuxmains/logo3.png" alt="Logo principal" loading="lazy">
 </main>
@@ -61,7 +58,58 @@
   </div>
   <div class="square-item">
     <a href="adeuxmains/services.html" class="square square-3"></a>
-    <span class="square-label">Livraison & <br>réparation</span>
+    <span class="square-label">Livraison & réparation</span>
+  </div>
+</section>
+
+<!-- AVIS CLIENTS -->
+<section id="avis-section">
+  <h2>-<br>VOS AVIS</h2>
+  <div class="carousel">
+    <div class="carousel-track-container">
+      <ul class="carousel-track">
+
+        <li class="carousel-slide active">
+          <div class="review-content">
+            <p class="review-text">
+              <span class="stars">★★★★★</span><br>
+              <span class="review-message">Super accueil, produits de qualité et à prix abordable. Je recommande fortement !</span>
+            </p>
+            <span class="review-author">- Marie</span>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="carousel-slide">
+          <div class="review-content">
+            <p class="review-text">
+              <span class="stars">★★★★☆</span><br>
+              <span class="review-message">Un vrai geste pour l'environnement, et en plus on fait des économies !</span>
+            </p>
+            <span class="review-author">- Julien</span>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </li>
+
+        <li class="carousel-slide">
+          <div class="review-content">
+            <p class="review-text">
+              <span class="stars">★★★★★</span><br>
+              <span class="review-message">Le service de livraison est rapide et efficace. Bravo à toute l'équipe !</span>
+            </p>
+            <span class="review-author">- Sophie</span>
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -87,13 +135,49 @@
 </footer>
 
 <script>
+  // Menu burger
   const burger = document.querySelector(".burger");
   const nav = document.querySelector(".nav-actions");
 
   burger.addEventListener("click", () => {
     nav.classList.toggle("active");
   });
+
+  // Carrousel avis auto
+  const track = document.querySelector(".carousel-track");
+const slides = Array.from(track.children);
+let currentIndex = 0;
+
+function updateCarousel() {
+  // Déplacement du carrousel
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === currentIndex);
+
+    // Reset de la barre
+    const fill = slide.querySelector(".progress-fill");
+    fill.style.transition = "none";
+    fill.style.width = "0%";
+    // Forcer le reflow pour que la transition reprenne
+    void fill.offsetWidth;
+    if (index === currentIndex) {
+      fill.style.transition = "width 5s linear";
+      fill.style.width = "100%";
+    }
+  });
+}
+
+// Défilement automatique toutes les 5 secondes
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  updateCarousel();
+}, 5000);
+  // Initialisation au chargement
+  updateCarousel();
+
+
 </script>
+
 
 </body>
 </html>
