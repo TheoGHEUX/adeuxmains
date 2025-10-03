@@ -124,12 +124,12 @@ header .logo {
 
 /* ===== Main ===== */
 main.services-page {
-    max-width: 1200px;
-    margin: 550px auto 2rem auto; /* espace sous header fixe */
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  max-width: 1200px;
+  margin: 510px auto 2rem auto; /* espace sous header fixe */
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .hero {
@@ -179,8 +179,30 @@ main.services-page {
   margin-bottom: 0.5rem;
 }
 
+/* ===== Message Mobile ===== */
+.mobile-message {
+  display: none;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 2rem;
+  margin-top: 100px; /* pour ne pas être caché par header fixe */
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
+  /* Masquer contenu principal */
+  main.services-page,
+  header.site-header {
+    display: none;
+  }
+
+  /* Afficher message mobile */
+  .mobile-message {
+    display: block;
+  }
+
+  /* Ancien responsive header (si tu veux le garder ailleurs) */
   header.site-header {
     flex-wrap: wrap;
     padding: 1rem;
@@ -238,7 +260,7 @@ main.services-page {
   }
 
   main.services-page {
-      padding: 0 1rem;
-      margin-top: 550px;
+    padding: 0 1rem;
+    margin-top: 550px;
   }
 }
