@@ -471,6 +471,43 @@ input:invalid + .error{
   font-size: 1.4rem;
 }
 
+.qui-sommes-nous-container {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* espace entre le texte et l'image */
+}
+
+.qui-sommes-nous-infos {
+  flex: 2; /* texte prend plus de place */
+}
+
+.qui-sommes-nous-image {
+  flex: 1;
+}
+
+.qui-sommes-nous-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px; /* arrondi pour un style plus doux */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* petite ombre sympa */
+}
+
+.para {
+      text-align: center;
+      margin-right: 10vw;
+      margin-left: 10vw;
+      font-size: 1.4rem;
+    }
+
+@media (max-width: 768px) {
+  .qui-sommes-nous-container {
+    flex-direction: column;
+  }
+
+  .qui-sommes-nous-image {
+    margin-top: 20px;
+  }
+}
 
 /* Footer */
 footer.site-footer {

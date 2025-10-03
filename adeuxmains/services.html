@@ -1,48 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services – À DEUX MAINS</title>
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services – À DEUX MAINS</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
+    <header class="site-header">
+        <div class="logo">
+            <img src="logo2.png" alt="Logo" class="logo-img" loading="lazy" />
+            À DEUX MAINS
+        </div>
+        <button class="burger" aria-label="Menu"> ☰ </button>
+        <div class="nav-actions">
+            <nav class="nav-links">
+                <a href="../index.html">Accueil</a>
+                <a href="../index.html#contact-section">Nous contacter</a>
+                <a href="profile.html">
+                    <img src="categories/user.png" alt="Profil" class="user-icon" loading="lazy">
+                </a>
+            </nav>
+            <a href="auth.html" class="btn">Connexion</a>
+        </div>
+    </header>
 
-  <header class="site-header">
-  <div class="logo">
-    <img src="logo2.png" alt="Logo" class="logo-img" loading="lazy" />
-    À DEUX MAINS
-  </div>
+    <main class="services-page">
+        <section class="hero">
+            <h1>Nos Services</h1>
+            <p>À DEUX MAINS vous accompagne pour vos besoins en livraison et réparation, rapidement et en toute confiance.</p>
+        </section>
 
-  <button class="burger" aria-label="Menu">
-    ☰
-  </button>
-  <div class="nav-actions">
-    <nav class="nav-links">
-      <a href="../index.html">Accueil</a>
-      <a href="../index.html#contact-section">Nous contacter</a>
-      <a href="profile.html">
-        <img src="categories/user.png" alt="Profil" class="user-icon" loading="lazy">
-      </a>
-    </nav>
-    <a href="auth.html" class="btn">Connexion</a>
-  </div>
-</header>
+        <section class="service delivery">
+            <h2>Livraison</h2>
+            <p>Nous proposons un service de livraison fiable et rapide pour tous vos produits, qu’il s’agisse d’achats en ligne ou de transferts entre vos lieux de travail et domicile.</p>
+            <ul>
+                <li>Livraison express en moins de 24h</li>
+                <li>Suivi en temps réel de vos colis</li>
+                <li>Tarifs adaptés à vos besoins</li>
+            </ul>
+            <a href="contact.html" class="btn">Demander une livraison</a>
+        </section>
 
-<footer class="site-footer">
-  <p>&copy; 2025 À DEUX MAINS. Tous droits réservés.</p>
-</footer>
+        <section class="service repair">
+            <h2>Réparation</h2>
+            <p>Notre équipe qualifiée prend en charge la réparation de vos appareils électroniques et équipements domestiques, avec un diagnostic rapide et transparent.</p>
+            <ul>
+                <li>Réparation d’électroménagers</li>
+                <li>Maintenance informatique et téléphones</li>
+                <li>Pièces de rechange certifiées</li>
+            </ul>
+            <a href="contact.html" class="btn">Demander une réparation</a>
+        </section>
+    </main>
 
-<script>
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".nav-actions");
-
-  burger.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
-</script>
-
-    
+    <script>
+        const burger = document.querySelector(".burger");
+        const nav = document.querySelector(".nav-actions");
+        burger.addEventListener("click", () => {
+            nav.classList.toggle("active");
+        });
+    </script>
 </body>
 </html>
